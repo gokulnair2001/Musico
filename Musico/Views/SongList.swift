@@ -11,6 +11,8 @@ struct SongList: View {
     
     @StateObject var viewModel = SongListViewModel()
     
+    @State var modal: ModalType? = nil
+    
     var body: some View {
         NavigationView {
             List {
@@ -20,13 +22,40 @@ struct SongList: View {
                         print("selected")
                     }label: {
                         Text(song.title)
-                            .font(.title3)
+                            .font(.body)
                             .foregroundColor(Color(.label))
                     }
                 }
             }
             .navigationBarTitle("🎵 Songs")
-        }.onAppear {
+            
+            .toolbar {
+                Button{
+                    modal = .add
+                }label: {
+                    Image(systemName: "plus")
+                        .frame(width: 40, height: 40, alignment: .center)
+                        .foregroundColor(.red)
+                }
+            }
+        }
+        .sheet(item: $modal, onDismiss: {
+            Task {
+                do {
+                    try await viewModel.fetchSongs()
+                }catch {
+                    print("❌Error: \(error.localizedDescription)")
+                }
+            }
+        }){ modal in
+            switch modal {
+            case .add:
+                AddUpdateSongs(viewModel: AddUpdateSongViewModel())
+            case .update(let song):
+                AddUpdateSongs(viewModel: AddUpdateSongViewModel(currentSong: song))
+            }
+        }
+        .onAppear {
             Task {
                 do {
                     try await viewModel.fetchSongs()

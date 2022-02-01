@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		557D263327A983E2009DD081 /* ModalType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557D263227A983E2009DD081 /* ModalType.swift */; };
+		557D263527A98502009DD081 /* AddUpdateSongs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557D263427A98502009DD081 /* AddUpdateSongs.swift */; };
+		557D263727A986F1009DD081 /* AddUpdateSongViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557D263627A986F1009DD081 /* AddUpdateSongViewModel.swift */; };
 		559E8FC1276079DB008AA920 /* MusicoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559E8FC0276079DB008AA920 /* MusicoApp.swift */; };
 		559E8FC3276079DB008AA920 /* SongList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559E8FC2276079DB008AA920 /* SongList.swift */; };
 		559E8FC5276079DE008AA920 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 559E8FC4276079DE008AA920 /* Assets.xcassets */; };
@@ -18,6 +21,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		557D263227A983E2009DD081 /* ModalType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ModalType.swift; path = Musico/Views/ModalType.swift; sourceTree = SOURCE_ROOT; };
+		557D263427A98502009DD081 /* AddUpdateSongs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUpdateSongs.swift; sourceTree = "<group>"; };
+		557D263627A986F1009DD081 /* AddUpdateSongViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUpdateSongViewModel.swift; sourceTree = "<group>"; };
 		559E8FBD276079DB008AA920 /* Musico.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Musico.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		559E8FC0276079DB008AA920 /* MusicoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicoApp.swift; sourceTree = "<group>"; };
 		559E8FC2276079DB008AA920 /* SongList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongList.swift; sourceTree = "<group>"; };
@@ -90,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				559E8FD427607ABC008AA920 /* SongListViewModel.swift */,
+				557D263627A986F1009DD081 /* AddUpdateSongViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -98,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				559E8FC2276079DB008AA920 /* SongList.swift */,
+				557D263427A98502009DD081 /* AddUpdateSongs.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -105,6 +113,7 @@
 		559E8FD127607A33008AA920 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				557D263227A983E2009DD081 /* ModalType.swift */,
 				559E8FD627607E18008AA920 /* HttpClient.swift */,
 				559E8FD827607F2F008AA920 /* Constants.swift */,
 			);
@@ -182,9 +191,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				559E8FD727607E19008AA920 /* HttpClient.swift in Sources */,
+				557D263327A983E2009DD081 /* ModalType.swift in Sources */,
 				559E8FD327607A59008AA920 /* Songs.swift in Sources */,
 				559E8FD527607ABC008AA920 /* SongListViewModel.swift in Sources */,
 				559E8FC3276079DB008AA920 /* SongList.swift in Sources */,
+				557D263727A986F1009DD081 /* AddUpdateSongViewModel.swift in Sources */,
+				557D263527A98502009DD081 /* AddUpdateSongs.swift in Sources */,
 				559E8FC1276079DB008AA920 /* MusicoApp.swift in Sources */,
 				559E8FD927607F2F008AA920 /* Constants.swift in Sources */,
 			);
