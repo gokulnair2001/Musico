@@ -19,13 +19,14 @@ struct SongList: View {
                 ForEach(viewModel.songs, id: \.id) {
                     song in
                     Button{
-                        print("selected")
+                        modal = .update(song)
                     }label: {
                         Text(song.title)
                             .font(.body)
                             .foregroundColor(Color(.label))
                     }
                 }
+                .onDelete(perform: viewModel.delete)
             }
             .navigationBarTitle("🎵 Songs")
             
