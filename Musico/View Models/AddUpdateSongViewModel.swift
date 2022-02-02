@@ -28,6 +28,21 @@ final class AddUpdateSongViewModel: ObservableObject {
         self.songID = currentSong.id
     }
     
+    func addUpdateAction(completion: @escaping () -> Void) {
+        Task {
+            do {
+                if isUpdating {
+                   try await updateSong()
+                }else {
+                    try await addSong()
+                }
+            }catch {
+                print("❌Error:\(error.localizedDescription)")
+            }
+            completion()
+        }
+    }
+    
     func addSong() async throws {
         let urlString = Constants.baseURL + EndPoints.songs
         
@@ -42,18 +57,19 @@ final class AddUpdateSongViewModel: ObservableObject {
                                              httpMethod: HttpMethods.POST.rawValue)
     }
     
-    func addUpdateAction(completion: @escaping () -> Void) {
-        Task {
-            do {
-                if isUpdating {
-                    // update song
-                }else {
-                    try await addSong()
-                }
-            }catch {
-                print("❌Error:\(error.localizedDescription)")
-            }
-            completion()
+    func updateSong() async throws {
+        let urlString = Constants.baseURL + EndPoints.songs
+        
+        guard let url = URL(string:  urlString) else {
+            throw HttpError.badURl
         }
+        
+        let updateSong = Song(id: songID, title: songTitle)
+        
+        try await HttpClient.shared.sendData(to: url,
+                                             object: updateSong,
+                                             httpMethod: HttpMethods.PUT.rawValue)
     }
+    
+    
 }
