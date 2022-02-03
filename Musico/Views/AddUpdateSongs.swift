@@ -14,18 +14,24 @@ struct AddUpdateSongs: View {
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
-        VStack {
+        Form {
             TextField("Song title", text: $viewModel.songTitle)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
-            
+
             Button {
                 viewModel.addUpdateAction {
                     presentationMode.wrappedValue.dismiss()
                 }
             }label: {
                 Text(viewModel.buttonTitle)
-            }
+                    .foregroundColor(.white)
+                    .font(.custom("Avenir Heavy", size: 16))
+                    .padding()
+                    .frame(width: UIScreen.main.bounds.width - 100, height: 50, alignment: .center)
+                    .background(.pink)
+                    .cornerRadius(14)
+            }.frame(maxWidth: .infinity, alignment: .center)
+            
         }
     }
 }
